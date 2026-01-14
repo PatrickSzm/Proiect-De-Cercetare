@@ -32,7 +32,7 @@ int main() {
 	}
 
         window.display();
-        sf::sleep(sf::milliseconds(16)); // ~60 FPS
+        sf::sleep(sf::milliseconds(16)); // aprox. 60 FPS
     }
     return 0;
 }
