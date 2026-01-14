@@ -1,4 +1,6 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
+
 int main() {
     sf::RenderWindow window(sf::VideoMode(400, 300), "Bouncing Ball");
     sf::CircleShape ball(20.f);
@@ -19,6 +21,16 @@ int main() {
 
         window.clear();
         window.draw(ball);
+	static sf::Clock fpsClock;
+	static int frameCount = 0;
+	frameCount++;
+
+	if (fpsClock.getElapsedTime().asSeconds() >= 1.0f) {
+    	  std::cout << "FPS: " << frameCount << std::endl;
+    	  frameCount = 0;
+    	  fpsClock.restart();
+	}
+
         window.display();
         sf::sleep(sf::milliseconds(16)); // ~60 FPS
     }
